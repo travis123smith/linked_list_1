@@ -17,14 +17,15 @@ class Stack
     # Push a value onto the stack
     def push(value)
         @data = LinkedListNode.new(value, @data)
-    #puts @data.value
     end
 
     # Pop an item off the stack.
     # Remove the last item that was pushed onto the
     # stack and return the value to the user
  def pop
+     pop_value = @data
      @data = @data.next_node
+     return pop_value
   end
 end
 
@@ -43,22 +44,21 @@ def reverse_list(list)
   while list
     stack.push(list.value)
     list = list.next_node
-    puts stack.data.value
   end
   return stack.data
 end
 
+stack = Stack.new
+stack.push(3)
+stack.push(4)
+stack.push(5)
+print_values(stack.data)
+print_values(reverse_list(stack.data))
 
 
 
-node1 = LinkedListNode.new(37)
-node2 = LinkedListNode.new(99, node1)
-node3 = LinkedListNode.new(12, node2)
 
-print_values(node3)
-puts "-------"
-revlist = reverse_list(node3)
-print_values(revlist)
+
 
 
 
